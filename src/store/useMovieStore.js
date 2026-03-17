@@ -53,9 +53,15 @@ export const useMovieStore = create(
             name: data.username,
             email: emailLower,
             password: data.password,
-            genre: data.genre || "Фантастика",
+            genres: [], // ми змінили на масив раніше
+            theme: {
+              background: "#ffffff", // світла за замовчуванням
+              accent: "#e91e63",     // рожевий за замовчуванням
+              isDark: false
+            },
             favorites: []
           };
+          
     
           set({ users: [...users, newUser], currentUserId: newUser.id });
           return { success: true };
